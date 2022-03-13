@@ -6,4 +6,5 @@ public enum ContactType {
     PROFESSIONAL,
     OTHER,
 
+
 }

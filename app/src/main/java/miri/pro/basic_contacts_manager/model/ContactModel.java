@@ -2,7 +2,7 @@ package miri.pro.basic_contacts_manager.model;
 
 import java.io.Serializable;
 
-public class ContactModel implements Serializable {
+public class ContactModel implements Serializable{
     private String contactName;
     private String email;
     private String phoneNumber;
@@ -48,5 +48,15 @@ public class ContactModel implements Serializable {
 
     public void setContactType(ContactType contactType) {
         this.contactType = contactType;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactModel{" +
+                "contactName='" + contactName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", contactType=" + contactType +
+                '}';
     }
 }

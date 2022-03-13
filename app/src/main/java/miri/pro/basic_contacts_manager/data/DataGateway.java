@@ -1,7 +1,11 @@
 package miri.pro.basic_contacts_manager.data;
 
-import java.io.File;
+import android.content.Context;
 
+import java.io.File;
+import java.util.HashMap;
+
+import miri.pro.basic_contacts_manager.model.ContactModel;
 import miri.pro.basic_contacts_manager.model.ContactsBook;
 
 public interface DataGateway {
@@ -18,7 +22,7 @@ public interface DataGateway {
      *
      */
 
-    ContactsBook loadData(File file);
-    void saveData(File file, ContactsBook contactsBook);
+    HashMap<String, ContactModel> loadData(Context context);
+    void saveData(Context context, HashMap<String, ContactModel> contactsBook);
 
 }
