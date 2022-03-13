@@ -2,13 +2,18 @@ package miri.pro.basic_contacts_manager;
 
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -20,41 +25,54 @@ import miri.pro.basic_contacts_manager.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FragmentManager fragmentManager;
-    private ContactsListFragment contactsListFragment;
+    private BottomNavigationView bottomNavigationView;
 
     // views
-    private FloatingActionButton newContactButton;
+    //private Button addNewContactButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //init variables
-        newContactButton = findViewById(R.id.newContactButton);
+        //addNewContactButton = findViewById(R.id.addNewContactButton);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        //
-        fragmentManager = getSupportFragmentManager();
-        contactsListFragment = new ContactsListFragment();
+        //init fragment
+        replaceFragment(new ContactsListFragment());
 
-        // adding frag to container
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragmentContainerMain, contactsListFragment, "contactsListFragment");
+       bottomNavigationView.setOnItemSelectedListener(itemSelectedListener);
 
-
-
-        newContactButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                //TODO: go to the form activity
-            }
-        });
     }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.contactsListFragmentLayout, fragment);
+        fragmentTransaction.commit();
+
+    }
+
+    private NavigationBarView.OnItemSelectedListener itemSelectedListener = new NavigationBarView.OnItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Toast.makeText(MainActivity.this, "item "+item.getItemId() , Toast.LENGTH_SHORT).show();
+            if(item.getItemId() == R.id.contactsListMenuItem){
+                replaceFragment(new ContactsListFragment());
+            }
+            else if(item.getItemId() == R.id.addContactMenuItem){
+                replaceFragment(new AddNewContactFragment());
+
+            }
+            return false;
+        }
+    };
 
 
 

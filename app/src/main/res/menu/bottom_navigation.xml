@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/contactsListMenuItem"
+        android:icon="@drawable/contacts_24"
+        android:title="Contacts List"
+        />
+    <item
+        android:id="@+id/addContactMenuItem"
+        android:icon="@drawable/add_contact_24"
+        android:title="Add a new Contact "
+        />
+
+</menu>
