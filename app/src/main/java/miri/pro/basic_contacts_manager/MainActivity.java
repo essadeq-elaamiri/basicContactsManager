@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(new ContactsListFragment());
         bottomNavigationView.setOnItemSelectedListener(itemSelectedListener);
 
+        // empty file
+        // dataGateway.emptyListBook(this);
         // init ContactsBook from file
         ContactsBook.addAllContacts(dataGateway.loadData(this));
 

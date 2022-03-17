@@ -39,12 +39,14 @@ public class ContactsListFragment extends Fragment {
 
         contactsListView = view.findViewById(R.id.contactsListView);
 
+
+
         List<ContactModel> contactList = new ArrayList<>(ContactsBook.getContactsBookList().values());
 
-        System.out.println("==========================");
-        System.out.println(ContactsBook.getContactsBookList().values().getClass().toString());
-        System.out.println(ContactsBook.getContactsBookList().values().isEmpty() );
-        System.out.println(contactList.size());
+        //System.out.println("==========================");
+        //System.out.println(ContactsBook.getContactsBookList().values().getClass().toString());
+        //System.out.println(ContactsBook.getContactsBookList().values().isEmpty() );
+        //System.out.println(contactList.size());
         /*
         for (ContactModel str: ContactsBook.getContactsBookList().values()) {
             ContactModel contactModel_ = new ContactModel();
@@ -59,7 +61,7 @@ public class ContactsListFragment extends Fragment {
 
 
         //ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, contactList);
-        ArrayAdapter<ContactModel> adapter = new ContactsListAdapter(getContext(), contactList);
+        ArrayAdapter<ContactModel> adapter = new ContactsListAdapter(getContext(),R.layout.single_contact_item, contactList);
 
         //TODO: 1- create the adapter, validate before saving , return to list after saving, improve UI
 

@@ -1,37 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <ImageView
+        android:id="@+id/contactImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:minWidth="100dp"
+        android:minHeight="100dp"
+        android:padding="15dp"/>
+        <!--android:src="@drawable/male_user"-->
+
+
     <RelativeLayout
         android:id="@+id/contactItemRelativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:padding="15dp">
+        android:layout_toRightOf="@+id/contactImageView"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        >
 
         <TextView
             android:id="@+id/contactNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/myBlack"
-            android:textSize="23dp"
+            android:textColor="@color/blue_navy1"
+            android:textSize="23sp"
             android:textStyle="bold"
-            tools:text="Essadeq Elaamiri" />
+            tools:text="Essadeq Elaamiri"
+            android:layout_marginBottom="14dp"/>
 
         <TextView
             android:id="@+id/contactEmailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/contactNameTextView"
-            android:drawableStart="@drawable/ic_baseline_email_15"
+            android:layout_marginBottom="14dp"
             android:drawablePadding="6dp"
-            android:textColor="@color/material_dynamic_neutral30"
-            android:textSize="18dp"
+            android:textColor="@color/myGray"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_baseline_email_15"
             tools:text="essadeq@gmail.com" />
 
         <TextView
@@ -39,11 +58,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/contactEmailTextView"
-            android:drawableStart="@drawable/ic_baseline_local_phone_15"
             android:drawablePadding="6dp"
-            android:textColor="@color/material_dynamic_neutral30"
-            android:textSize="18dp"
+            android:textColor="@color/myGray"
+            android:textSize="18sp"
             android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_baseline_local_phone_15"
             tools:text="00 88 99 98" />
 
         <TextView
@@ -51,9 +70,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/contactEmailTextView"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/material_dynamic_neutral30"
-            android:textSize="16dp"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/myGray"
+            android:textSize="16sp"
             android:textStyle="bold"
             tools:text="FAMILY" />
 

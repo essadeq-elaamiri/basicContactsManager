@@ -17,4 +17,8 @@
         <item>PROFESSIONAL</item>
         <item>OTHER</item>
     </string-array>
+    <string-array name="contacts_gender">
+        <item>MALE</item>
+        <item>FEMALE</item>
+    </string-array>
 </resources>

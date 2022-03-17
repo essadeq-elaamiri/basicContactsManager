@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,6 +17,8 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 
 import miri.pro.basic_contacts_manager.model.ContactModel;
+
+//TODO : adding the possibility to find one entry, delete one, sort, find by category, by gender, by key word
 
 public class DataGatewayImp implements DataGateway{
     private final String JSON_FILE_NAME = "contactBooks.json";
@@ -93,5 +96,8 @@ public class DataGatewayImp implements DataGateway{
         }
     }
 
+    public void emptyListBook(Context context){
+       saveData(context, new HashMap<String, ContactModel>());
+    }
 
 }

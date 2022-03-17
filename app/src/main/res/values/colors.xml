@@ -17,6 +17,14 @@
     <color name="yellow">#F1D00A</color>
     <color name="gray">#F0F0F0</color>
     <color name="myBlack">#121314</color>
+    <color name="myGray">#4E5052</color>
+
+    <color name="green_type">#3ae374</color>
+    <color name="blue_type">#17c0eb</color>
+    <color name="purple_type">#c56cf0</color>
+    <color name="orange_type">#ff9f1a</color>
+
+
 
 
 </resources>

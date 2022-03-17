@@ -24,5 +24,7 @@ public interface DataGateway {
 
     HashMap<String, ContactModel> loadData(Context context);
     void saveData(Context context, HashMap<String, ContactModel> contactsBook);
+    public void emptyListBook(Context context);
 
-}
+
+    }

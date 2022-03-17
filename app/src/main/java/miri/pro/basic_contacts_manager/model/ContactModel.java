@@ -7,15 +7,19 @@ public class ContactModel implements Serializable{
     private String email;
     private String phoneNumber;
     private ContactType contactType;
+    private ContactGender contactGender;
+
+
 
     public ContactModel() {
     }
 
-    public ContactModel(String contactName, String email, String phoneNumber, ContactType contactType) {
+    public ContactModel(String contactName, String email, String phoneNumber, ContactType contactType, ContactGender contactGender) {
         this.contactName = contactName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.contactType = contactType;
+        this.contactGender = contactGender;
     }
 
     public String getContactName() {
@@ -49,6 +53,15 @@ public class ContactModel implements Serializable{
     public void setContactType(ContactType contactType) {
         this.contactType = contactType;
     }
+    public ContactGender getContactGender() {
+        return contactGender;
+    }
+
+    public void setContactGender(ContactGender contactGender) {
+        this.contactGender = contactGender;
+    }
+
+
 
     @Override
     public String toString() {
@@ -57,6 +70,8 @@ public class ContactModel implements Serializable{
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", contactType=" + contactType +
+                ", contactGender=" + contactGender +
                 '}';
     }
+
 }
