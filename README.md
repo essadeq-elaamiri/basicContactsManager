@@ -7,7 +7,7 @@ deal with local storage in native android.
 
 1. the application based on two fragments, one represente the list of contacts, and the other represent the form to add a new contact.
 2. the records inserted and loadded from a local json file.
-3. I used ==Gson== to convert the objects to json to String and vice versa.
+3. I used <mark>[Gson](https://github.com/google/gson)</mark> convert the objects to json to String and vice versa.
 
 ### load data
 
@@ -70,11 +70,11 @@ private String readFromFile(Context context, String jsonFileName) {
 
 ## TODO
 
-- [] Adding filters (By name, by category, by gender).
-- [] Adding the ability to edit a contact.
-- [] Adding the ability to delete a contact.
-- [] Adding the ability to erase the list.
-- [] Adding an image to the contact.
+- [ ] Adding filters (By name, by category, by gender).
+- [ ] Adding the ability to edit a contact.
+- [ ] Adding the ability to delete a contact.
+- [ ] Adding the ability to erase the list.
+- [ ] Adding an image to the contact.
 
 ## Screenshots
 
@@ -82,3 +82,5 @@ private String readFromFile(Context context, String jsonFileName) {
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | <img src="/screenshots/validation_phone.png" width="200px" height="auto"> | <img src="/screenshots/contact_added_msg.png" width="200px" height="auto"> | <img src="/screenshots/contact_added.png" width="200px" height="auto"> |
 |                                                                           |                                                                            |                                                                        |
+
+## Watch the [DEMO](https://www.youtube.com/watch?v=fyiWv8DaG_o) on youtube.
