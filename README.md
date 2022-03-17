@@ -78,7 +78,7 @@ private String readFromFile(Context context, String jsonFileName) {
 
 ## Screenshots
 
-| <img src="/screenshots/contacts_list.png" width="200px" height="auto">    | <img src="/screenshots/contacts_list.png" width="200px" height="auto">     | <img src="/screenshots/validation.png" width="200px" height="auto">    |
+| <img src="/screenshots/contacts_list.png" width="200px" height="auto">    | <img src="/screenshots/add_new_contact.png" width="200px" height="auto">   | <img src="/screenshots/validation.png" width="200px" height="auto">    |
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | <img src="/screenshots/validation_phone.png" width="200px" height="auto"> | <img src="/screenshots/contact_added_msg.png" width="200px" height="auto"> | <img src="/screenshots/contact_added.png" width="200px" height="auto"> |
 |                                                                           |                                                                            |                                                                        |
