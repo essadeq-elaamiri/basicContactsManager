@@ -24,9 +24,12 @@ public final class ContactsBook implements Serializable {
         }
     }
 
-    public static HashMap<String, ContactModel> getContactsBoolList(){
+    public static HashMap<String, ContactModel> getContactsBookList(){
         return contactModelHashMap;
     }
 
+    public static void addAllContacts(HashMap<String, ContactModel> contacts){
+        contactModelHashMap.putAll(contacts);
+    }
 
 }

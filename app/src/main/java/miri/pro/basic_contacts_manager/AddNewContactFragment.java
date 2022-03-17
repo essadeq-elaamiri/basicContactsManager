@@ -1,9 +1,7 @@
 package miri.pro.basic_contacts_manager;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -103,7 +101,7 @@ public class AddNewContactFragment extends Fragment {
         System.out.println("Contact: "+ contactModel);
 
         // save to file
-        dataGateway.saveData(getContext(), ContactsBook.getContactsBoolList());
+        dataGateway.saveData(getContext(), ContactsBook.getContactsBookList());
     }
 
 

@@ -7,15 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import miri.pro.basic_contacts_manager.adapters.ContactsListAdapter;
+import miri.pro.basic_contacts_manager.model.ContactModel;
+import miri.pro.basic_contacts_manager.model.ContactsBook;
 
 
 public class ContactsListFragment extends Fragment {
@@ -36,11 +38,30 @@ public class ContactsListFragment extends Fragment {
         this.view = inflater.inflate(R.layout.fragment_contacts_list, container, false);
 
         contactsListView = view.findViewById(R.id.contactsListView);
-        List<String> list = new ArrayList<>();
-        for (int i=0; i< 11; i++){
-            list.add("Contact "+i);
+
+        List<ContactModel> contactList = new ArrayList<>(ContactsBook.getContactsBookList().values());
+
+        System.out.println("==========================");
+        System.out.println(ContactsBook.getContactsBookList().values().getClass().toString());
+        System.out.println(ContactsBook.getContactsBookList().values().isEmpty() );
+        System.out.println(contactList.size());
+        /*
+        for (ContactModel str: ContactsBook.getContactsBookList().values()) {
+            ContactModel contactModel_ = new ContactModel();
+            contactModel_.setContactName(str.getContactName());
+            contactModel_.setEmail(str.getEmail());
+            contactModel_.setPhoneNumber(str.getPhoneNumber());
+            contactModel_.setContactType(str.getContactType());
+            contactList.add(contactModel_);
         }
-        ListAdapter adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1 , list);
+
+         */
+
+
+        //ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, contactList);
+        ArrayAdapter<ContactModel> adapter = new ContactsListAdapter(getContext(), contactList);
+
+        //TODO: 1- create the adapter, validate before saving , return to list after saving, improve UI
 
         contactsListView.setAdapter(adapter);
 

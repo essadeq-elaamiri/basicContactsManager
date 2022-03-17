@@ -4,18 +4,18 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 
 import miri.pro.basic_contacts_manager.model.ContactModel;
-import miri.pro.basic_contacts_manager.model.ContactsBook;
 
 public class DataGatewayImp implements DataGateway{
     private final String JSON_FILE_NAME = "contactBooks.json";
@@ -27,10 +27,12 @@ public class DataGatewayImp implements DataGateway{
          *
          */
         Gson gson = new Gson();
-        //ModelObject modelObject1 = gson.fromJson(json, ModelObject.class);
-        HashMap<String, ContactModel> contactModelHashMap = null;
+        // ModelObject modelObject1 = gson.fromJson(json, ModelObject.class);
+        //HashMap<String, ContactModel> contactModelHashMap = null;
         String fileContent = readFromFile(context, JSON_FILE_NAME);
-        contactModelHashMap = gson.fromJson(fileContent, HashMap.class);
+        //contactModelHashMap = gson.fromJson(fileContent, HashMap.class);
+        Type listType = new TypeToken<HashMap<String, ContactModel>>(){}.getType();
+        HashMap<String, ContactModel> contactModelHashMap = gson.fromJson(fileContent, listType);
         return contactModelHashMap;
     }
 

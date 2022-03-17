@@ -18,14 +18,25 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import miri.pro.basic_contacts_manager.data.DataGateway;
+import miri.pro.basic_contacts_manager.data.DataGatewayImp;
+import miri.pro.basic_contacts_manager.model.ContactModel;
+import miri.pro.basic_contacts_manager.model.ContactsBook;
 
 public class MainActivity extends AppCompatActivity {
 
     // views
     private BottomNavigationView bottomNavigationView;
     private Toolbar toolBareInner;
+
+    DataGateway dataGateway;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +46,16 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         toolBareInner = findViewById(R.id.toolBareInner);
 
+        dataGateway = new DataGatewayImp();
+
         //init fragment
         replaceFragment(new ContactsListFragment());
         bottomNavigationView.setOnItemSelectedListener(itemSelectedListener);
+
+        // init ContactsBook from file
+        ContactsBook.addAllContacts(dataGateway.loadData(this));
+
+
 
     }
 
@@ -52,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationBarView.OnItemSelectedListener itemSelectedListener = new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Toast.makeText(MainActivity.this, "item "+item.getItemId() , Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "item "+item.getItemId() , Toast.LENGTH_SHORT).show();
             if(item.getItemId() == R.id.contactsListMenuItem){
                 toolBareInner.setTitle("Contact list");
                 replaceFragment(new ContactsListFragment());
